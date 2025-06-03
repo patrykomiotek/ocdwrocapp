@@ -33,6 +33,11 @@ const palette = {
   asbestos: "#7f8c8d",
 };
 
+// enum Color {
+//   alizarin = "#e74c3c",
+//   clouds = "#ecf0f1",
+// }
+
 type Color = keyof typeof palette;
 
 interface Props {
@@ -43,14 +48,12 @@ interface Props {
 
 export function Button({
   children,
-  color = "clouds",
-  bgColor = "carrot",
+  color = "clouds", // Color.alizarin
+  bgColor = "carrot", // Color.clouds
 }: Props) {
-  return (
-    <button style={{ color: palette[color], background: palette[bgColor] }}>
-      {children}
-    </button>
-  );
+  const styles = { color: palette[color], backgroundColor: palette[bgColor] };
+
+  return <button style={styles}>{children}</button>;
 }
 
 {
