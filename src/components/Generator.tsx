@@ -1,8 +1,8 @@
-import { useState, useCallback, useEffect, useMemo } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useState, useCallback, useEffect } from 'react';
+import type { MouseEventHandler } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-import { Button, Text } from "../ui";
-import type { MouseEventHandler } from "react";
+import { Button, Text } from '@/ui';
 
 export function Generator() {
   // let uuid = uuidv4();
@@ -11,18 +11,18 @@ export function Generator() {
   const [uuid, setUuid] = useState<string>(uuidv4());
 
   useEffect(() => {
-    console.log("mounted");
+    console.log('mounted');
 
     return () => {
-      console.log("unmounted");
+      console.log('unmounted');
     };
   }, []);
 
   useEffect(() => {
-    console.log("uuid:mounted/updated");
+    console.log('uuid:mounted/updated');
 
     return () => {
-      console.log("uuid:unmounted");
+      console.log('uuid:unmounted');
     };
   }, [uuid]);
 
