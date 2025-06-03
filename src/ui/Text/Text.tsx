@@ -6,7 +6,7 @@ import { memo } from "react";
 import type { PropsWithChildren } from "react";
 
 interface Props {
-  children: string; // React.ReactNode
+  children: string | string[]; // React.ReactNode
 }
 
 // export function Text(props: { children: string }) {
