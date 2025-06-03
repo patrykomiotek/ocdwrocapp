@@ -9,6 +9,7 @@ export function Viewport() {
       <Text>
         x: {size.x}, y: {size.y}
       </Text>
+      {/* <p>{JSON.stringify(size, null, 2)}</p> */}
     </div>
   );
 }
