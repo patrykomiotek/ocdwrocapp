@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import { Button, Text } from "./ui";
 
 import "./App.css";
+import { Generator } from "./components/Generator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <div>
+        <Generator />
         <Text>Hello!</Text>
         <Button bgColor="clouds" color="carrot" disabled>
           Click
