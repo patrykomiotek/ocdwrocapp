@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import { memo, type ComponentProps } from "react";
 
 const palette = {
   turquoise: "#1abc9c",
@@ -31,7 +31,8 @@ const palette = {
 type Color = keyof typeof palette;
 
 interface Props extends ComponentProps<"button"> {
-  children: string;
+  // children: string;
+  children: React.ReactNode;
   color?: Color;
   bgColor?: Color;
 }
@@ -39,30 +40,34 @@ interface Props extends ComponentProps<"button"> {
 // type ButtonProps = Props & Required<Pick<Props, "onClick">>;
 // type ButtonProps = Required<Props>; // all are required
 
-export function Button({
-  children,
-  color = "clouds", // Color.alizarin
-  bgColor = "carrot", // Color.clouds
-  ...rest
-}: Props) {
-  const buttonStyle: React.CSSProperties = {
-    backgroundColor: palette[bgColor],
-    color: palette[color],
-    padding: "10px 20px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "16px",
-    fontWeight: "bold",
-    transition: "all 0.3s ease",
-  };
+export const Button = memo(
+  ({
+    children,
+    color = "clouds", // Color.alizarin
+    bgColor = "carrot", // Color.clouds
+    ...rest
+  }: Props) => {
+    const buttonStyle: React.CSSProperties = {
+      backgroundColor: palette[bgColor],
+      color: palette[color],
+      padding: "10px 20px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      fontSize: "16px",
+      fontWeight: "bold",
+      transition: "all 0.3s ease",
+    };
 
-  return (
-    <button {...rest} style={buttonStyle}>
-      {children}
-    </button>
-  );
-}
+    return (
+      <button {...rest} style={buttonStyle}>
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "memo(Button)";
 
 {
   /* <Button bgColor="clouds" color="carrot">Click</Button> */

@@ -1,3 +1,4 @@
+import { memo } from "react";
 // export const Text = () => {
 //   return <p> Today is a nice day </p>;
 // }
@@ -9,9 +10,11 @@ interface Props {
 }
 
 // export function Text(props: { children: string }) {
-export function Text({ children = "sth" }: Props) {
+export const Text = memo(({ children = "sth" }: Props) => {
   return <p>{children}</p>;
-}
+});
+
+Text.displayName = "memo(Text)";
 
 // export const Text: React.FC<Props & PropsWithChildren> = ({ children = "sth" }) => {
 //   return <p>{children}</p>;
