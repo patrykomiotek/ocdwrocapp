@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Text } from "./ui/Text";
 import "./App.css";
+import { Button } from "./ui/Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +12,9 @@ function App() {
     <>
       <div>
         <Text>Hello!</Text>
+        <Button bgColor="clouds" color="carrot" disabled>
+          Click
+        </Button>
 
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

@@ -19,7 +19,7 @@
     "strict": true,
     "noUnusedLocals": false, // ❌ only for workshop app
     "noUnusedParameters": false, // ❌ only for workshop app
-    "erasableSyntaxOnly": false,
+    "erasableSyntaxOnly": false, // ❌ only for workshop app
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
