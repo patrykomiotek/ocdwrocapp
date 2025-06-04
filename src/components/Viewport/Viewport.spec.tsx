@@ -19,4 +19,6 @@ describe('Viewport component', () => {
     render(<Viewport />);
     expect(screen.getByText(/x: 987, y: 657/i)).toBeInTheDocument();
   });
+
+  // TODO: it.each
 });
