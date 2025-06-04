@@ -1,8 +1,13 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { Button } from './Button';
 
 describe('Button component', () => {
+  it('worst test ever', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+
   it('should match snapshot', () => {
     const { container } = render(<Button>Click me</Button>);
 
