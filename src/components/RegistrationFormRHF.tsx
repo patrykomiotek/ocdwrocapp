@@ -1,5 +1,5 @@
 import { useForm, type SubmitHandler } from 'react-hook-form';
-import { Button, Input } from '../ui';
+import { Button, Heading, Input } from '../ui';
 import { validationSchema, type RegistrationDto } from './registrationSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -18,15 +18,12 @@ export function RegistrationFormRHF() {
 
   return (
     <div>
-      <h1>Registration form (RHF)</h1>
+      <Heading>Registration form (RHF)</Heading>
 
       <form onSubmit={handleSubmit(submitHandler)}>
-        <Input {...register('email')} label="E-mail" type="email" />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-        <Input {...register('password')} label="Password" type="password" />
-        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-        <Input {...register('language')} label="Language" />
-        {errors.language && <p className="text-red-500">{errors.language.message}</p>}
+        <Input {...register('email')} label="E-mail" type="email" error={errors.email} />
+        <Input {...register('password')} label="Password" type="password" error={errors.password} />
+        <Input {...register('language')} label="Language" error={errors.language} />
         <Button type="submit">Submit</Button>
       </form>
     </div>

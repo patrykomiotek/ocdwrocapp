@@ -1,5 +1,5 @@
 import { useRef, type FormEventHandler } from 'react';
-import { Button, Input } from '../ui';
+import { Button, Heading, Input } from '../ui';
 
 export function RegistrationFormRefs() {
   const emailFieldRef = useRef<HTMLInputElement>(null);
@@ -23,7 +23,7 @@ export function RegistrationFormRefs() {
 
   return (
     <div>
-      <h1>Registration form (refs)</h1>
+      <Heading>Registration form (refs)</Heading>
       <p ref={infoRef}></p>
       <form onSubmit={handleSubmit}>
         <Input ref={emailFieldRef} label="E-mail" type="email" />

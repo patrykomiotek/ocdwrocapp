@@ -1,5 +1,5 @@
 import { useState, type ChangeEventHandler, type FormEventHandler } from 'react';
-import { Text, Button, Input } from '../ui';
+import { Text, Button, Input, Heading } from '../ui';
 
 export function RegistrationFormState() {
   // const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ export function RegistrationFormState() {
 
   return (
     <div>
-      <h1>Registration form (state)</h1>
+      <Heading>Registration form (state)</Heading>
       <Text>
         E-mail: {email}, password: {password}
       </Text>
