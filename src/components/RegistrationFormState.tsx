@@ -1,5 +1,5 @@
 import { useState, type ChangeEventHandler, type FormEventHandler } from 'react';
-import { Text, Button } from '../ui';
+import { Text, Button, Input } from '../ui';
 
 export function RegistrationFormState() {
   // const [email, setEmail] = useState("");
@@ -38,35 +38,9 @@ export function RegistrationFormState() {
         E-mail: {email}, password: {password}
       </Text>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
-        </div>
-        <div>
-          <label htmlFor="language">Language</label>
-          <input
-            id="language"
-            name="language"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
-        </div>
+        <Input label="E-mail" type="email" name="email" onChange={handleChange} />
+        <Input label="Password" type="password" name="password" onChange={handleChange} />
+        <Input label="Language" name="language" onChange={handleChange} />
         <Button type="submit">Submit</Button>
       </form>
     </div>
