@@ -2,6 +2,7 @@ import './App.css';
 import { Heading } from 'ui/Heading';
 import { AuthContextPage } from './pages/AuthContextPage';
 import { AuthProvider } from './components/Auth/AuthContext';
+import { ThemeProvider, ThemeSwitcher } from './components/Theme';
 
 function App() {
   return (
@@ -10,21 +11,24 @@ function App() {
         Blue header
       </Heading>
 
-      <AuthProvider>
-        {/* <ThemeProvider theme="dark"> */}
-        {/* <ViewportPage /> */}
+      <ThemeProvider>
+        <ThemeSwitcher />
+        <AuthProvider>
+          {/* <ThemeProvider theme="dark"> */}
+          {/* <ViewportPage /> */}
 
-        <AuthContextPage />
-        {/* <ViewportPage /> */}
-        {/* <CounterPage /> */}
-        {/* <RegistrationState /> */}
-        {/* <GeneratorPage /> */}
-        {/* <Text>Hello!</Text> */}
-        {/* <Button bgColor="clouds" color="carrot" disabled>
+          <AuthContextPage />
+          {/* <ViewportPage /> */}
+          {/* <CounterPage /> */}
+          {/* <RegistrationState /> */}
+          {/* <GeneratorPage /> */}
+          {/* <Text>Hello!</Text> */}
+          {/* <Button bgColor="clouds" color="carrot" disabled>
         Click
       </Button> */}
-        {/* </ThemeProvider> */}
-      </AuthProvider>
+          {/* </ThemeProvider> */}
+        </AuthProvider>
+      </ThemeProvider>
     </div>
   );
 }
