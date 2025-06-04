@@ -1,57 +1,32 @@
-import { useState, type ChangeEventHandler, type FormEventHandler } from 'react';
-import { Text, Button } from '../ui';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { Button, Input } from '../ui';
+import { validationSchema, type RegistrationDto } from './registrationSchema';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export function RegistrationFormRHF() {
-  // const emailFieldRef = useRef<HTMLInputElement>(null);
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [language, setLanguage] = useState("");
-  const [formState, setFormState] = useState({
-    email: '',
-    password: '',
-    language: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegistrationDto>({
+    resolver: zodResolver(validationSchema),
   });
 
-  const handleSubmit: FormEventHandler = (event) => {
-    event.preventDefault();
-
-    console.log({ formState });
+  const submitHandler: SubmitHandler<RegistrationDto> = (data) => {
+    console.log({ data });
   };
-
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    // event.targe.name
-    // event.target.value
-    const name = event.target.name;
-    const value = event.target.value;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const { email, password } = formState;
 
   return (
     <div>
-      <h1>Registration form</h1>
-      <Text>
-        E-mail: {email}, password: {password}
-      </Text>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input id="email" name="email" type="email" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="language">Language</label>
-          <input id="language" name="language" onChange={handleChange} />
-        </div>
+      <h1>Registration form (RHF)</h1>
+
+      <form onSubmit={handleSubmit(submitHandler)}>
+        <Input {...register('email')} label="E-mail" type="email" />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+        <Input {...register('password')} label="Password" type="password" />
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+        <Input {...register('language')} label="Language" />
+        {errors.language && <p className="text-red-500">{errors.language.message}</p>}
         <Button type="submit">Submit</Button>
       </form>
     </div>

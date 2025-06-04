@@ -3,8 +3,9 @@ import { Heading } from 'ui/Heading';
 // import { AuthContextPage } from './pages/AuthContextPage';
 import { AuthProvider } from './components/Auth/AuthContext';
 import { ThemeProvider, ThemeSwitcher } from './components/Theme';
-import { RegistrationFormRefsPage } from './pages/RagistrationFormRefsPage';
-import { RegistrationFormState } from './components/RegistrationFormState';
+// import { RegistrationFormRefsPage } from './pages/RagistrationFormRefsPage';
+// import { RegistrationFormState } from './components/RegistrationFormState';
+import { RegistrationFormRHFPage } from './pages/RagistrationFormRefsRHF';
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
           {/* <ThemeProvider theme="dark"> */}
           {/* <ViewportPage /> */}
 
-          <RegistrationFormRefsPage />
-
-          <RegistrationFormState />
+          <RegistrationFormRHFPage />
+          {/* <RegistrationFormRefsPage /> */}
+          {/* <RegistrationFormState /> */}
           {/* <AuthContextPage /> */}
           {/* <ViewportPage /> */}
           {/* <CounterPage /> */}
