@@ -1,7 +1,7 @@
-import { ViewportPage } from '@/pages/ViewportPage';
-
 import './App.css';
 import { Heading } from 'ui/Heading';
+import { AuthContextPage } from './pages/AuthContextPage';
+import { AuthContext } from './components/Auth/AuthContext';
 
 function App() {
   return (
@@ -10,14 +10,17 @@ function App() {
         Blue header
       </Heading>
 
-      <ViewportPage />
-      {/* <CounterPage /> */}
-      {/* <RegistrationState /> */}
-      {/* <GeneratorPage /> */}
-      {/* <Text>Hello!</Text> */}
-      {/* <Button bgColor="clouds" color="carrot" disabled>
+      <AuthContext value={{ isLoggedIn: true }}>
+        <AuthContextPage />
+        {/* <ViewportPage /> */}
+        {/* <CounterPage /> */}
+        {/* <RegistrationState /> */}
+        {/* <GeneratorPage /> */}
+        {/* <Text>Hello!</Text> */}
+        {/* <Button bgColor="clouds" color="carrot" disabled>
         Click
       </Button> */}
+      </AuthContext>
     </div>
   );
 }

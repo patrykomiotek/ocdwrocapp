@@ -5,7 +5,7 @@ import { AuthCredentials } from './AuthCredentials';
 export function AuthInfo() {
   return (
     <div>
-      <Heading variant="h3">AuthCredentials</Heading>
+      <Heading variant="h2">AuthInfo</Heading>
       <AuthCredentials />
     </div>
   );
