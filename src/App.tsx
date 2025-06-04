@@ -11,6 +11,7 @@ function App() {
       </Heading>
 
       <AuthProvider>
+        {/* <ThemeProvider theme="dark"> */}
         {/* <ViewportPage /> */}
 
         <AuthContextPage />
@@ -22,6 +23,7 @@ function App() {
         {/* <Button bgColor="clouds" color="carrot" disabled>
         Click
       </Button> */}
+        {/* </ThemeProvider> */}
       </AuthProvider>
     </div>
   );

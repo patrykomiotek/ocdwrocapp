@@ -18,12 +18,17 @@ export const useAuthContext = () => {
   return context;
 };
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const useAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const toggleLoggedIn = () => setIsLoggedIn((value) => !value);
   const logIn = () => setIsLoggedIn(true);
   const logOut = () => setIsLoggedIn(false);
 
+  return { isLoggedIn, toggleLoggedIn, logIn, logOut };
+};
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const { isLoggedIn, toggleLoggedIn, logIn, logOut } = useAuth();
   return (
     <AuthContext value={{ isLoggedIn, toggleLoggedIn, logIn, logOut }}>{children}</AuthContext>
   );
