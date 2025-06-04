@@ -1,5 +1,5 @@
 import { RegistrationFormState } from '@/components/RegistrationFormState';
 
-export function RegistrationState() {
+export function RegistrationFormStatePage() {
   return <RegistrationFormState />;
 }

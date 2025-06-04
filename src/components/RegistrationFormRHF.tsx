@@ -1,7 +1,9 @@
 import { useState, type ChangeEventHandler, type FormEventHandler } from 'react';
 import { Text, Button } from '../ui';
 
-export function RegistrationFormState() {
+export function RegistrationFormRHF() {
+  // const emailFieldRef = useRef<HTMLInputElement>(null);
+
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   // const [language, setLanguage] = useState("");
@@ -33,39 +35,22 @@ export function RegistrationFormState() {
 
   return (
     <div>
-      <h1>Registration form (state)</h1>
+      <h1>Registration form</h1>
       <Text>
         E-mail: {email}, password: {password}
       </Text>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
+          <input id="email" name="email" type="email" onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
+          <input id="password" name="password" type="password" onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="language">Language</label>
-          <input
-            id="language"
-            name="language"
-            onChange={handleChange}
-            className="outline rounded-md"
-          />
+          <input id="language" name="language" onChange={handleChange} />
         </div>
         <Button type="submit">Submit</Button>
       </form>
