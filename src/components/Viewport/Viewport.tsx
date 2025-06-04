@@ -1,5 +1,5 @@
-import { useViewport } from "../hooks/useViewport";
-import { Text } from "../ui";
+import { useViewport } from '@/hooks/useViewport';
+import { Text } from '@/ui';
 
 export function Viewport() {
   const size = useViewport();
