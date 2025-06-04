@@ -9,10 +9,10 @@ interface Props {
 
 export const Heading = memo(({ children, variant = 'h1', className = '' }: Props) => {
   if (variant === 'h1') {
-    return <h1 className={classMerge('text-3xl', className)}>{children}</h1>;
+    return <h1 className={classMerge('text-3xl text-slate-200', className)}>{children}</h1>;
   } else if (variant === 'h2') {
-    return <h2 className={classMerge('text-2xl', className)}>{children}</h2>;
+    return <h2 className={classMerge('text-2xl text-slate-200', className)}>{children}</h2>;
   } else if (variant === 'h3') {
-    return <h3 className={classMerge('text-xl', className)}>{children}</h3>;
+    return <h3 className={classMerge('text-xl text-slate-200', className)}>{children}</h3>;
   }
 });
