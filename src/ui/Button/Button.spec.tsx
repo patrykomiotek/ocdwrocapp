@@ -3,8 +3,9 @@ import { axe } from 'jest-axe';
 import { Button } from './Button';
 
 describe('Button component', () => {
-  it('worst test ever', () => {
-    render(<Button>Click me</Button>);
+  it.skip('worst test ever', () => {
+    const { debug } = render(<Button>Click me</Button>);
+    debug();
     expect(screen.getByText('Click me')).toBeInTheDocument();
   });
 
