@@ -1,5 +1,5 @@
 // * - try to base on css classes first
-import { type MutableRefObject, createContext, useContext, useEffect, useRef } from 'react';
+import { type RefObject, createContext, useContext, useEffect, useRef } from 'react';
 
 export enum Theme {
   LIGHT = 'light',
@@ -7,7 +7,7 @@ export enum Theme {
 }
 
 type ThemeContextType = {
-  theme: MutableRefObject<Theme | null>; // 'light' | 'dark' | null === 'system'
+  theme: RefObject<Theme | null>; // 'light' | 'dark' | null === 'system'
   toggle: () => void;
 };
 
