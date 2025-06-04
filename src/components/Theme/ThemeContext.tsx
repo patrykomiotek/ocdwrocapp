@@ -15,8 +15,8 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const getMode = () => {
   if (window.matchMedia) {
-    const matchesLightMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return matchesLightMode ? Theme.LIGHT : Theme.DARK;
+    const matchesDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return matchesDarkMode ? Theme.DARK : Theme.LIGHT;
   }
   // there may not be window.matchMedia object - eg. in tests
   return null; // 'system'
