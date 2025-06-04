@@ -1,3 +1,30 @@
-import { createContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
-export const AuthContext = createContext({ isLoggedIn: false });
+// () => void
+interface AuthContextType {
+  isLoggedIn: boolean;
+  toggleLoggedIn: () => void;
+  logIn: () => void;
+  logOut: () => void;
+}
+
+export const AuthContext = createContext<AuthContextType | null>(null);
+
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('Component should be placed inside AuthContext');
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const toggleLoggedIn = () => setIsLoggedIn((value) => !value);
+  const logIn = () => setIsLoggedIn(true);
+  const logOut = () => setIsLoggedIn(false);
+
+  return (
+    <AuthContext value={{ isLoggedIn, toggleLoggedIn, logIn, logOut }}>{children}</AuthContext>
+  );
+};

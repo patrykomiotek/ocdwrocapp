@@ -1,20 +1,18 @@
 import './App.css';
 import { Heading } from 'ui/Heading';
 import { AuthContextPage } from './pages/AuthContextPage';
-import { AuthContext } from './components/Auth/AuthContext';
-import { useState } from 'react';
+import { AuthProvider } from './components/Auth/AuthContext';
 
 function App() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
     <div>
       <Heading variant="h1" className="text-blue-600">
         Blue header
       </Heading>
 
-      <AuthContext value={{ isLoggedIn }}>
+      <AuthProvider>
+        {/* <ViewportPage /> */}
+
         <AuthContextPage />
         {/* <ViewportPage /> */}
         {/* <CounterPage /> */}
@@ -24,7 +22,7 @@ function App() {
         {/* <Button bgColor="clouds" color="carrot" disabled>
         Click
       </Button> */}
-      </AuthContext>
+      </AuthProvider>
     </div>
   );
 }

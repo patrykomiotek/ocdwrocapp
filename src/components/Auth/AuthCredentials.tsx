@@ -1,13 +1,13 @@
-import { useContext } from 'react';
-import { Heading, Text } from '@/ui';
-import { AuthContext } from './AuthContext';
+import { Button, Heading, Text } from '@/ui';
+import { useAuthContext } from './AuthContext';
 
 export function AuthCredentials() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const context = useAuthContext();
   return (
     <div>
       <Heading variant="h3">AuthCredentials</Heading>
-      <Text>Is user logged in? {isLoggedIn ? 'YES' : 'NO'}</Text>
+      <Text>Is user logged in? {context.isLoggedIn ? 'YES' : 'NO'}</Text>
+      <Button onClick={() => context.toggleLoggedIn()}>Toggle</Button>
     </div>
   );
 }
