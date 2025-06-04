@@ -13,7 +13,7 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export const useAuthContext = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('Component should be placed inside AuthContext');
+    throw new Error('Component should be placed inside AuthProvider');
   }
   return context;
 };
