@@ -1,19 +1,17 @@
 import './App.css';
-// import { Heading } from 'ui/Heading';
-// import { AuthContextPage } from './pages/AuthContextPage';
+
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './routes';
 import { AuthProvider } from './components/Auth/AuthContext';
-import { ThemeProvider, ThemeSwitcher } from './components/Theme';
-// import { RegistrationFormRefsPage } from './pages/RagistrationFormRefsPage';
-// import { RegistrationFormState } from './components/RegistrationFormState';
-// import { RegistrationFormRHFPage } from './pages/RagistrationFormRefsRHF';
-import { GeneratorPage } from './pages/GeneratorPage';
+import { ThemeProvider } from './components/Theme';
 
 function App() {
   return (
     <div>
       <ThemeProvider>
-        <ThemeSwitcher />
         <AuthProvider>
+          <RouterProvider router={router} />
           {/* <ThemeProvider theme="dark"> */}
           {/* <ViewportPage /> */}
 
@@ -24,11 +22,9 @@ function App() {
           {/* <ViewportPage /> */}
           {/* <CounterPage /> */}
           {/* <RegistrationState /> */}
-          <GeneratorPage />
+          {/* <GeneratorPage /> */}
           {/* <Text>Hello!</Text> */}
-          {/* <Button bgColor="clouds" color="carrot" disabled>
-        Click
-      </Button> */}
+          {/* <Button bgColor="clouds" color="carrot" disabled>Click</Button> */}
           {/* </ThemeProvider> */}
         </AuthProvider>
       </ThemeProvider>

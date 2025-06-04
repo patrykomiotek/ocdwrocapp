@@ -12,7 +12,7 @@ export const Input = ({ label, error, ...rest }: Props) => {
   const id = useId();
   return (
     <div>
-      <label htmlFor={id} className="dark:text-slate-200">
+      <label htmlFor={id} className="dark:text-slate-200 mr-2">
         {label}
       </label>
       <input id={id} className="outline rounded-md" {...rest} />

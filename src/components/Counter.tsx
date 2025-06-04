@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { Heading, Text } from '@/ui';
 
 export function Counter() {
   const [count, setCount] = useState(0);
@@ -7,8 +8,8 @@ export function Counter() {
     const id = setInterval(() => {
       setCount((value) => value + 1);
     }, 1000);
-    console.log("mount");
-    console.log("intervalId: ", { id });
+    console.log('mount');
+    console.log('intervalId: ', { id });
 
     return () => {
       clearInterval(id);
@@ -17,8 +18,8 @@ export function Counter() {
 
   return (
     <div>
-      <h1>Counter</h1>
-      <h2>{count}</h2>
+      <Heading variant="h1">Counter</Heading>
+      <Text>{count}</Text>
     </div>
   );
 }
