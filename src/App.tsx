@@ -1,11 +1,15 @@
 import { ViewportPage } from '@/pages/ViewportPage';
 
 import './App.css';
+import { Heading } from 'ui/Heading';
 
 function App() {
   return (
     <div>
-      <h1 className="text-3xl text-blue-600">Blue header</h1>
+      <Heading variant="h1" className="text-blue-600">
+        Blue header
+      </Heading>
+
       <ViewportPage />
       {/* <CounterPage /> */}
       {/* <RegistrationState /> */}
