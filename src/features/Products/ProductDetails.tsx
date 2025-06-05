@@ -11,6 +11,8 @@ interface Props {
 
 export function ProductsDetails({ id }: Props) {
   const [data, setData] = useState<ProductDto | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const loadData = async () => {
     try {
@@ -32,12 +34,23 @@ export function ProductsDetails({ id }: Props) {
       // if (error instanceof AxiosError) {
       // }
       console.error(error); // TODO: not use in production!
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     loadData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Oh no!</div>;
+  }
 
   if (!data) {
     return <div>Product is loading...</div>;

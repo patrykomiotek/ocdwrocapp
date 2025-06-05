@@ -7,6 +7,8 @@ import type { ApiListResponse, ProductDto } from './types';
 
 export function ProductsList() {
   const [data, setData] = useState<ProductDto[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const loadData = async () => {
     try {
@@ -28,12 +30,23 @@ export function ProductsList() {
       // if (error instanceof AxiosError) {
       // }
       console.error(error); // TODO: not use in production!
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     loadData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Oh no!</div>;
+  }
 
   return (
     <div>
