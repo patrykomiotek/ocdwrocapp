@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { AxiosResponse } from 'axios';
 
+// export const useApi = <T>(fetcher: () => Promise<AxiosResponse<T>>) => {
 // eslint-disable-next-line
 export const useApi = <T>(fetcher: Function) => {
   const [data, setData] = useState<T | undefined>(undefined);

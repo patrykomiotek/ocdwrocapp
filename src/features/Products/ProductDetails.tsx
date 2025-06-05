@@ -8,11 +8,11 @@ import { useApi } from '@/hooks/useApi';
 import { fetchProduct } from './services';
 
 interface Props {
-  id: string;
+  id: ProductId;
 }
 
 export function ProductsDetails({ id }: Props) {
-  const { data, isError, isLoading } = useApi<ProductDto>(() => fetchProduct(id as ProductId));
+  const { data, isError, isLoading } = useApi<ProductDto>(() => fetchProduct(id));
   // const [data, setData] = useState<ProductDto | null>(null);
   // const [isLoading, setIsLoading] = useState(true);
   // const [isError, setIsError] = useState(false);
