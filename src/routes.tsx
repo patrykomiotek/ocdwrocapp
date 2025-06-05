@@ -9,6 +9,7 @@ import { RegistrationFormRHFPage } from '@/pages/RegistrationFormRHFPage';
 import { ViewportPage } from '@/pages/ViewportPage';
 import { CounterPage } from '@/pages/ConterPage';
 import { GeneratorPage } from '@/pages/GeneratorPage';
+import { ProductsListPage } from './pages/ProductsListPage';
 
 type Route = Record<
   string,
@@ -88,10 +89,10 @@ export const router = createBrowserRouter([
         path: Route.HOME.path,
         element: <HomePage />,
       },
-      // {
-      //   path: Route.PRODUCTS_LIST.path,
-      //   element: <ProductsListPage />,
-      // },
+      {
+        path: Route.PRODUCTS_LIST.path,
+        element: <ProductsListPage />,
+      },
       // {
       //   path: Route.CATEGORIES_LIST.path,
       //   element: <CategoriesListPage />,
@@ -129,7 +130,7 @@ export const router = createBrowserRouter([
         element: <RegistrationFormRHFPage />,
       },
       {
-        path: Route.COUNTER.path,
+        path: Route.COUNTER.path, // "/counter"
         element: <CounterPage />,
       },
       {
