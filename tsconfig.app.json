@@ -12,8 +12,9 @@
       "@/stories/*": ["stories/*"],
       "@/services/*": ["services/*"],
       "@/features/*": ["features/*"],
-      "@/apptypes/*": ["types/*"],
+      "@/types/*": ["types/*"],
       "@/sagas/*": ["sagas/*"]
+      // "@types/*": ["types/*"] // not working
     },
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",

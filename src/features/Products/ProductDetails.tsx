@@ -3,15 +3,19 @@ import axios from 'axios';
 
 import { Heading, Text } from '@/ui';
 import { Link } from 'react-router-dom';
-import type { ApiListResponse, ProductDto } from './types';
+import type { ProductDto } from './types';
 
-export function ProductsList() {
-  const [data, setData] = useState<ProductDto[]>([]);
+interface Props {
+  id: string;
+}
+
+export function ProductsDetails({ id }: Props) {
+  const [data, setData] = useState<ProductDto | null>(null);
 
   const loadData = async () => {
     try {
-      const response = await axios.get<ApiListResponse<ProductDto>>(
-        'https://api.airtable.com/v0/appJ0votvrhmT0Sbq/products',
+      const response = await axios.get<ProductDto>(
+        `https://api.airtable.com/v0/appJ0votvrhmT0Sbq/products/${id}`,
         {
           headers: {
             Authorization:
@@ -20,7 +24,7 @@ export function ProductsList() {
         },
       );
 
-      setData(response.data.records);
+      setData(response.data);
 
       // response.data.records[0].fields.quantity
     } catch (error) {
@@ -35,18 +39,20 @@ export function ProductsList() {
     loadData();
   }, []);
 
+  if (!data) {
+    return <div>Product is loading...</div>;
+  }
+
   return (
     <div>
-      {data.map((elem) => (
-        <div key={elem.id} className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
-          <Heading variant="h2">
-            <Link to={`/products/${elem.id}`}>{elem.fields.name}</Link>
-          </Heading>
-          <Text>
-            {elem.fields.description} {elem.fields.price}
-          </Text>
-        </div>
-      ))}
+      <div className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
+        <Heading variant="h2">
+          <Link to={`/products/${data.id}`}>{data.fields.name}</Link>
+        </Heading>
+        <Text>
+          {data.fields.description} {data.fields.price}
+        </Text>
+      </div>
     </div>
   );
 }

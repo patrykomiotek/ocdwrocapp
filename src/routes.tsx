@@ -9,7 +9,8 @@ import { RegistrationFormRHFPage } from '@/pages/RegistrationFormRHFPage';
 import { ViewportPage } from '@/pages/ViewportPage';
 import { CounterPage } from '@/pages/ConterPage';
 import { GeneratorPage } from '@/pages/GeneratorPage';
-import { ProductsListPage } from './pages/ProductsListPage';
+import { ProductsListPage } from '@/pages/ProductsListPage';
+import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
 
 type Route = Record<
   string,
@@ -29,18 +30,18 @@ export const Route: Route = {
     path: '/products',
     title: 'Products',
   },
-  CATEGORIES_LIST: {
-    path: '/categories',
-    title: 'Categories',
+  PRODUCTS_DETAILS: {
+    path: '/products/:id',
+    title: 'Products details',
+    dynamicPath: (id: string) => `/products/${id}`,
   },
-  // PRODUCTS_DETAILS: {
-  //   path: '/products/:id',
-  //   title: 'Products details',
-  //   dynamicPath: (id: ProductDto['id']) => `/products/${id}`,
-  // },
   CREATE_PRODUCT: {
     path: '/products/create',
     title: 'Create product',
+  },
+  CATEGORIES_LIST: {
+    path: '/categories',
+    title: 'Categories',
   },
   // ORDER_SUMMARY: {
   //   path: '/order-summary',
@@ -97,10 +98,10 @@ export const router = createBrowserRouter([
       //   path: Route.CATEGORIES_LIST.path,
       //   element: <CategoriesListPage />,
       // },
-      // {
-      //   path: Route.PRODUCTS_DETAILS.path,
-      //   element: <ProductDetailsPage />,
-      // },
+      {
+        path: Route.PRODUCTS_DETAILS.path,
+        element: <ProductDetailsPage />,
+      },
       // {
       //   path: Route.CREATE_PRODUCT.path,
       //   element: <CreateProductPage />,

@@ -1,8 +1,11 @@
 import { memo } from 'react';
 import { classMerge } from 'ui/utils/cn';
+import { Link } from 'react-router-dom';
+
+type LinkType = ReturnType<typeof Link>;
 
 interface Props {
-  children: string;
+  children: string | LinkType;
   variant?: 'h1' | 'h2' | 'h3';
   className?: string;
 }
