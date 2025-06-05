@@ -12,20 +12,6 @@ function App() {
       <ThemeProvider>
         <AuthProvider>
           <RouterProvider router={router} />
-          {/* <ThemeProvider theme="dark"> */}
-          {/* <ViewportPage /> */}
-
-          {/* <RegistrationFormRHFPage /> */}
-          {/* <RegistrationFormRefsPage /> */}
-          {/* <RegistrationFormState /> */}
-          {/* <AuthContextPage /> */}
-          {/* <ViewportPage /> */}
-          {/* <CounterPage /> */}
-          {/* <RegistrationState /> */}
-          {/* <GeneratorPage /> */}
-          {/* <Text>Hello!</Text> */}
-          {/* <Button bgColor="clouds" color="carrot" disabled>Click</Button> */}
-          {/* </ThemeProvider> */}
         </AuthProvider>
       </ThemeProvider>
     </div>

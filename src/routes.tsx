@@ -81,7 +81,7 @@ export const Route: Route = {
 
 export const router = createBrowserRouter([
   {
-    path: Route.HOME.path,
+    path: Route.HOME.path, // "/""
     element: <Layout />,
     children: [
       {

@@ -1,13 +1,9 @@
-import { useAuthContext } from '@/components/Auth/AuthContext';
-import { Heading, Text } from '@/ui';
+import { AuthInfo } from '@/components/Auth/AuthInfo';
 
 export const HomePage = () => {
-  const context = useAuthContext();
-
   return (
     <div>
-      <Heading variant="h1">Hello from home</Heading>
-      <Text>Is logged in: {context.isLoggedIn ? 'YES' : 'NO'}</Text>
+      <AuthInfo />
     </div>
   );
 };

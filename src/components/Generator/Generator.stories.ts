@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Generator } from './Generator';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Components/Generator',
   component: Generator,
   parameters: {
     layout: 'centered',
