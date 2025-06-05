@@ -3,6 +3,8 @@ import { Outlet } from 'react-router-dom';
 // import { ErrorBoundary } from '../ErrorBoundary';
 import { Footer } from './Footer';
 import { Menu } from './Menu';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
+// import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 
 export const Layout = () => {
   return (
@@ -17,9 +19,9 @@ export const Layout = () => {
           Create Product
         </Link>
       </div> */}
-      {/* <ErrorBoundary> */}
-      <Outlet />
-      {/* </ErrorBoundary> */}
+      <ErrorBoundary fallback={<p>Another component!</p>}>
+        <Outlet />
+      </ErrorBoundary>
       <Footer />
     </div>
     // </ErrorBoundary>

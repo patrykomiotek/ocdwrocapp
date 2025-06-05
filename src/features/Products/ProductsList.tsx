@@ -16,6 +16,8 @@ export function ProductsList() {
     queryFn: fetchProducts,
   });
 
+  throw new Error('!!!');
+
   // const { data, isLoading, isError } = useApi();
   // const { data, isLoading, isError } = useApi('https://api.airtable.com/v0/appJ0votvrhmT0Sbq/products');
   // const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);
