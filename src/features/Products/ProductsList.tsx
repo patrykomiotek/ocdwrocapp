@@ -1,20 +1,25 @@
 // import { useEffect, useState } from 'react';
 // import axios from 'axios';
 
-import { Button, Heading, Text } from '@/ui';
+import { Heading, Text } from '@/ui';
 import { Link } from 'react-router-dom';
 // import type { ApiListResponse, ProductDto } from './types';
 // import { useApi } from '@/hooks/useApi';
-import { fetchProducts } from './services';
-import { useQuery } from '@tanstack/react-query';
+// import { fetchProducts } from './services';
+// import { useQuery } from '@tanstack/react-query';
+import type { ProductDto } from './types';
 // import type { AxiosResponse } from 'axios';
 
-export function ProductsList() {
+interface Props {
+  data: ProductDto[];
+}
+
+export function ProductsList({ data }: Props) {
   // const { data, isError, isLoading, refresh } = useApi<ApiListResponse<ProductDto>>(fetchProducts);
-  const { data, isError, isLoading, refetch } = useQuery({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+  // const { data, isError, isLoading, refetch } = useQuery({
+  //   queryKey: ['products'],
+  //   queryFn: fetchProducts,
+  // });
 
   // throw new Error('!!!');
 
@@ -56,27 +61,25 @@ export function ProductsList() {
   //   loadData();
   // }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (isError) {
-    return <div>Oh no!</div>;
-  }
+  // if (isError) {
+  //   return <div>Oh no!</div>;
+  // }
 
-  const products = data?.data.records;
+  // const products = data?.data.records;
 
-  if (!products) {
-    return <div>No records!</div>;
-  }
+  // if (!products) {
+  //   return <div>No records!</div>;
+  // }
 
   // throw new Error('!!!');
 
   return (
     <div>
-      <Button onClick={() => refetch()}>Refresh</Button>
-
-      {products.map((elem) => (
+      {data.map((elem) => (
         <div key={elem.id} className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
           <Heading variant="h2">
             <Link to={`/products/${elem.id}`} className="text-blue-600">
