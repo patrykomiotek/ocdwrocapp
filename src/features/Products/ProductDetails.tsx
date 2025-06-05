@@ -3,16 +3,21 @@
 
 import { Heading, Text } from '@/ui';
 import { Link } from 'react-router-dom';
-import type { ProductDto, ProductId } from './types';
-import { useApi } from '@/hooks/useApi';
+import type { ProductId } from './types';
+// import { useApi } from '@/hooks/useApi';
 import { fetchProduct } from './services';
+import { useQuery } from '@tanstack/react-query';
 
 interface Props {
   id: ProductId;
 }
 
 export function ProductsDetails({ id }: Props) {
-  const { data, isError, isLoading } = useApi<ProductDto>(() => fetchProduct(id));
+  // const { data, isError, isLoading } = useApi<ProductDto>(() => fetchProduct(id));
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ['products', { id }],
+    queryFn: () => fetchProduct(id),
+  });
   // const [data, setData] = useState<ProductDto | null>(null);
   // const [isLoading, setIsLoading] = useState(true);
   // const [isError, setIsError] = useState(false);
@@ -59,14 +64,16 @@ export function ProductsDetails({ id }: Props) {
     return <div>Product is loading...</div>;
   }
 
+  const product = data.data;
+
   return (
     <div>
       <div className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
         <Heading variant="h2">
-          <Link to={`/products/${data.id}`}>{data.fields.name}</Link>
+          <Link to={`/products/${product.id}`}>{product.fields.name}</Link>
         </Heading>
         <Text>
-          {data.fields.description} {data.fields.price}
+          {product.fields.description} {product.fields.price}
         </Text>
       </div>
     </div>

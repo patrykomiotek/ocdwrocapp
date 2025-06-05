@@ -3,12 +3,18 @@
 
 import { Button, Heading, Text } from '@/ui';
 import { Link } from 'react-router-dom';
-import type { ApiListResponse, ProductDto } from './types';
-import { useApi } from '@/hooks/useApi';
+// import type { ApiListResponse, ProductDto } from './types';
+// import { useApi } from '@/hooks/useApi';
 import { fetchProducts } from './services';
+import { useQuery } from '@tanstack/react-query';
+// import type { AxiosResponse } from 'axios';
 
 export function ProductsList() {
-  const { data, isError, isLoading, refresh } = useApi<ApiListResponse<ProductDto>>(fetchProducts);
+  // const { data, isError, isLoading, refresh } = useApi<ApiListResponse<ProductDto>>(fetchProducts);
+  const { data, isError, isLoading, refetch } = useQuery({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
 
   // const { data, isLoading, isError } = useApi();
   // const { data, isLoading, isError } = useApi('https://api.airtable.com/v0/appJ0votvrhmT0Sbq/products');
@@ -56,15 +62,17 @@ export function ProductsList() {
     return <div>Oh no!</div>;
   }
 
-  if (!data?.records) {
+  const products = data?.data.records;
+
+  if (!products) {
     return <div>No records!</div>;
   }
 
   return (
     <div>
-      <Button onClick={() => refresh()}>Refresh</Button>
+      <Button onClick={() => refetch()}>Refresh</Button>
 
-      {data.records.map((elem) => (
+      {products.map((elem) => (
         <div key={elem.id} className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
           <Heading variant="h2">
             <Link to={`/products/${elem.id}`} className="text-blue-600">

@@ -13,6 +13,12 @@ export const useApi = <T>(fetcher: Function) => {
     try {
       const response: AxiosResponse<T> = await fetcher();
       setData(response.data);
+
+      // const sth = await fn(response)
+
+      // response.then((response) => {
+      //   return another().then()
+      // })
     } catch {
       setIsError(true);
     } finally {
@@ -24,9 +30,9 @@ export const useApi = <T>(fetcher: Function) => {
     loadData();
   }, []);
 
-  const refresh = () => {
+  const refetch = () => {
     loadData();
   };
 
-  return { data, isLoading, isError, refresh };
+  return { data, isLoading, isError, refetch };
 };
