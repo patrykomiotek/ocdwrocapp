@@ -41,8 +41,11 @@ const useTheme = () => {
   useEffect(() => {
     // on the mount of component set additional class
     const themeMode = getMode();
+
     if (themeMode === Theme.LIGHT) {
       removeDarkCssClass();
+    } else if (themeMode === Theme.DARK) {
+      addDarkCssClass();
     }
 
     // add listener for change preferences
