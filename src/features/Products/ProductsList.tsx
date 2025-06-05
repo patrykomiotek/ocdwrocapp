@@ -1,14 +1,15 @@
 // import { useEffect, useState } from 'react';
 // import axios from 'axios';
 
-import { Heading, Text } from '@/ui';
+import { Button, Heading, Text } from '@/ui';
 import { Link } from 'react-router-dom';
 import type { ApiListResponse, ProductDto } from './types';
 import { useApi } from '@/hooks/useApi';
 import { fetchProducts } from './services';
 
 export function ProductsList() {
-  const { data, isError, isLoading } = useApi<ApiListResponse<ProductDto>>(fetchProducts);
+  const { data, isError, isLoading, refresh } = useApi<ApiListResponse<ProductDto>>(fetchProducts);
+
   // const { data, isLoading, isError } = useApi();
   // const { data, isLoading, isError } = useApi('https://api.airtable.com/v0/appJ0votvrhmT0Sbq/products');
   // const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);
@@ -61,6 +62,8 @@ export function ProductsList() {
 
   return (
     <div>
+      <Button onClick={() => refresh()}>Refresh</Button>
+
       {data.records.map((elem) => (
         <div key={elem.id} className="my-2 py-2 divide-gray-500 border-blue-400 border-b-2">
           <Heading variant="h2">

@@ -23,5 +23,9 @@ export const useApi = <T>(fetcher: Function) => {
     loadData();
   }, []);
 
-  return { data, isLoading, isError };
+  const refresh = () => {
+    loadData();
+  };
+
+  return { data, isLoading, isError, refresh };
 };
