@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo } from 'react';
+import { Button } from 'ui/Button';
 
 interface State {
   isError: boolean;
@@ -27,7 +28,14 @@ export class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.isError) {
-      return this.props.fallback ? this.props.fallback : <div>Boundary error</div>;
+      return this.props.fallback ? (
+        this.props.fallback
+      ) : (
+        <div>
+          Boundary error{' '}
+          <Button onClick={() => this.setState({ isError: false })}>Try again</Button>
+        </div>
+      );
     }
     return this.props.children;
   }

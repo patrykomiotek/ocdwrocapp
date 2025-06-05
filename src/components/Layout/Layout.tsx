@@ -19,7 +19,8 @@ export const Layout = () => {
           Create Product
         </Link>
       </div> */}
-      <ErrorBoundary fallback={<p>Another component!</p>}>
+      {/* <ErrorBoundary fallback={<p>Another component!</p>}> */}
+      <ErrorBoundary>
         <Outlet />
       </ErrorBoundary>
       <Footer />

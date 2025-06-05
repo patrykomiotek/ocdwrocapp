@@ -70,6 +70,8 @@ export function ProductsList() {
     return <div>No records!</div>;
   }
 
+  // throw new Error('!!!');
+
   return (
     <div>
       <Button onClick={() => refetch()}>Refresh</Button>
