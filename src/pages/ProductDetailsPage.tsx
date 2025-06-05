@@ -3,8 +3,12 @@ import { Heading } from 'ui/Heading';
 import { useParams } from 'react-router-dom';
 import { ProductsDetails } from '@/features/Products/ProductDetails';
 
+type RouterParams = {
+  id: string;
+};
+
 export function ProductDetailsPage() {
-  const params = useParams();
+  const params = useParams<RouterParams>();
   console.log({ params });
   return (
     <div>
