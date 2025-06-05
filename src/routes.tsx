@@ -11,6 +11,7 @@ import { CounterPage } from '@/pages/ConterPage';
 import { GeneratorPage } from '@/pages/GeneratorPage';
 import { ProductsListPage } from '@/pages/ProductsListPage';
 import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
+import { Stepper } from './components/Stepper';
 
 type Route = Record<
   string,
@@ -51,10 +52,10 @@ export const Route: Route = {
     path: '/generator',
     title: 'Generator',
   },
-  // STEPPER: {
-  //   path: '/stepper',
-  //   title: 'Stepper',
-  // },
+  STEPPER: {
+    path: '/stepper',
+    title: 'Stepper',
+  },
   // AUTH: {
   //   path: '/auth',
   //   title: 'Auth',
@@ -110,10 +111,10 @@ export const router = createBrowserRouter([
         path: Route.GENERATOR.path,
         element: <GeneratorPage />,
       },
-      // {
-      //   path: Route.STEPPER.path,
-      //   element: <StepperPage />,
-      // },
+      {
+        path: Route.STEPPER.path,
+        element: <Stepper />,
+      },
       // {
       //   path: Route.AUTH.path,
       //   element: <AuthPage />,

@@ -62,14 +62,14 @@ export const Menu = () => {
               Viewport
             </NavLink>
           </li>
-          {/* <li className="mr-4">
+          <li className="mr-4">
             <NavLink
-              to={Route.MAGIC_BUTTON.path}
+              to={Route.STEPPER.path}
               className={({ isActive }) => (isActive ? 'text-red-400' : 'dark:text-white')}
             >
-              Magic Button
+              Stepper
             </NavLink>
-          </li> */}
+          </li>
           <li className="mr-4">
             <NavLink
               to={Route.REGISTRATION_FORM_STATE.path}
